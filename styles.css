@@ -10,6 +10,19 @@ body {
 .road {
   position: relative;
 }
+.rope {
+  position: absolute;
+  border: 5px solid gray;
+  background-color: gray;
+  left: 30%;
+  top: 0%;
+  z-index: 500;
+  width: 2px;
+  height: 300px;
+  z-index: 500;
+  animation: rope-up-and-down 2s both ease-out;
+}
+
 .sky {
   height: 40%;
   background: skyblue;
@@ -61,6 +74,15 @@ body {
   animation-timing-function: linear;
 }
 
+.initials {
+  background: transparent;
+  z-index: 500;
+  height: 100px;
+  position: absolute;
+  left: 27%;
+  top: 0%;
+  animation: initials-down 1s forwards ease-out;
+}
 @keyframes drive {
   0% {
     left: -300px;
@@ -79,5 +101,26 @@ body {
   }
   100% {
     top: 100px;
+  }
+}
+
+@keyframes rope-up-and-down {
+  0% {
+    top: -330px;
+  }
+  50% {
+    top: -210px;
+  }
+  100% {
+    top: -310px;
+  }
+}
+
+@keyframes initials-down {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 90px;
   }
 }
