@@ -10,19 +10,43 @@ body {
 .road {
   position: relative;
 }
+
+.rope-and-letter-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  z-index: 500;
+  pointer-events: none;
+}
+.rope-wrapper {
+  position: relative;
+  width: 80px;
+  height: 800px;
+}
 .rope {
   position: absolute;
-  border: 5px solid gray;
   background-color: gray;
-  left: 30%;
+  left: 50%;
   top: 0%;
-  z-index: 500;
-  width: 2px;
-  height: 300px;
-  z-index: 500;
-  animation: rope-up-and-down 2s both ease-out;
+  width: 8px;
+  transform-origin: top center;
+  animation: rope-drop-and-retract 1.6s both ease-in;
 }
 
+.rope-letter-lastname {
+  position: absolute;
+  background-color: gray;
+  left: 50%;
+  top: 0%;
+  width: 8px;
+  transform-origin: top center;
+  animation: rope-drop-and-retract-letter-lastname 1.6s both ease-in;
+}
 .sky {
   height: 40%;
   background: skyblue;
@@ -74,14 +98,23 @@ body {
   animation-timing-function: linear;
 }
 
-.initials {
+.letter {
   background: transparent;
   z-index: 500;
   height: 100px;
   position: absolute;
-  left: 27%;
-  top: 0%;
-  animation: initials-down 1s forwards ease-out;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: letter-drop 2s ease-out forwards;
+}
+.letter-lastname {
+  background: transparent;
+  z-index: 500;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: letter-lastname-drop 2s ease-out forwards;
 }
 @keyframes drive {
   0% {
@@ -104,23 +137,50 @@ body {
   }
 }
 
-@keyframes rope-up-and-down {
+@keyframes rope-drop-and-retract {
   0% {
-    top: -330px;
+    height: 0;
   }
   50% {
-    top: -210px;
+    height: 100px;
   }
   100% {
-    top: -310px;
+    height: 0;
   }
 }
 
-@keyframes initials-down {
+@keyframes rope-drop-and-retract-letter-lastname {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 300px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes letter-drop {
   0% {
     top: -100px;
   }
+  50% {
+    top: 90px;
+  }
   100% {
     top: 90px;
+  }
+}
+
+@keyframes letter-lastname-drop {
+  0% {
+    top: -100px;
+  }
+  50% {
+    top: 290px;
+  }
+  100% {
+    top: 290px;
   }
 }
