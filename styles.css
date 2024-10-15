@@ -69,3 +69,15 @@ body {
     left: 2000px;
   }
 }
+
+@keyframes luigi-jump {
+  0% {
+    top: 100px;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 100px;
+  }
+}
