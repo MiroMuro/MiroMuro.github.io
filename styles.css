@@ -1,0 +1,71 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+.grass,
+.sky,
+.road {
+  position: relative;
+}
+.sky {
+  height: 40%;
+  background: skyblue;
+}
+.grass {
+  height: 30%;
+  background-repeat: repeat;
+  background-image: url("img/Grass\ 001.png");
+  background-size: 2%;
+}
+.grass-image {
+  height: 40%;
+}
+.road {
+  height: 30%;
+  background: dimgray;
+  /*The CSS box-sizing property allows us to include the padding and border in an
+    elements total width and height. Needed for the bottom border to be visible*/
+  box-sizing: border-box;
+  border-top: 10px solid gray;
+  border-bottom: 10px solid gray;
+}
+.stripes {
+  box-sizing: border-box;
+  border: 5px dashed white;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+
+.luigi {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  animation-name: drive;
+  animation-duration: 5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.mario {
+  position: absolute;
+  animation-name: drive;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes drive {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 2000px;
+  }
+}
