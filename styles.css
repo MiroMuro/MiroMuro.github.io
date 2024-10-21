@@ -57,9 +57,19 @@ body {
   width: 80px;
   height: 800px;
 }
+.rope-wrapper:nth-child(2) .rope,
+.rope-wrapper:nth-child(2) .letter {
+  animation-delay: 0.5s;
+}
+
+.rope-wrapper:nth-child(3) .rope,
+.rope-wrapper:nth-child(3) .letter {
+  animation-delay: 1s;
+}
 .rope {
   position: absolute;
-  background-color: gray;
+
+  background-image: url("img/rope.jpg");
   left: 50%;
   top: 0%;
   width: 8px;
@@ -68,13 +78,14 @@ body {
 }
 
 .rope-letter-lastname {
+  background-image: url("img/rope.jpg");
   position: absolute;
   background-color: gray;
   left: 50%;
   top: 0%;
   width: 8px;
   transform-origin: top center;
-  animation: rope-drop-and-retract-letter-lastname 1.6s both ease-in;
+  animation: rope-drop-and-retract-letter-lastname 1.4s both ease-out 3s;
 }
 .sky {
   height: 40%;
@@ -85,6 +96,9 @@ body {
   background-repeat: repeat;
   background-image: url("img/Grass\ 001.png");
   background-size: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grass-image {
   height: 40%;
@@ -132,6 +146,7 @@ body {
   z-index: 500;
   height: 100px;
   position: absolute;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%);
   animation: letter-drop 2s ease-out forwards;
@@ -141,9 +156,52 @@ body {
   z-index: 500;
   height: 100px;
   position: absolute;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  animation: letter-lastname-drop 2s ease-out forwards;
+  animation: letter-lastname-drop 2s ease-out 3s forwards;
+}
+.biography-container {
+  width: 61%;
+  height: 80%;
+  border-radius: 25px;
+  background-color: rgb(241, 232, 144);
+  border: 5px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-family: monospace;
+}
+.biography-card {
+  width: 90%;
+  height: 100%;
+  display: flex;
+}
+.biography-links {
+  width: 20%;
+  border-left: 2px solid black;
+}
+.biography-header-and-column-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.biography-header {
+  border-bottom: 2px solid black;
+  font-size: xx-large;
+}
+.biography-column {
+  font-size: large;
+}
+.biography .biography .slider {
+  background-color: rgb(255, 255, 255, 0.5);
+  width: 5%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px 0px 10px;
 }
 @keyframes drive {
   0% {
@@ -171,7 +229,7 @@ body {
     height: 0;
   }
   50% {
-    height: 100px;
+    height: 120px;
   }
   100% {
     height: 0;
@@ -182,7 +240,7 @@ body {
   0% {
     height: 0;
   }
-  50% {
+  70% {
     height: 300px;
   }
   100% {
@@ -195,10 +253,10 @@ body {
     top: -100px;
   }
   50% {
-    top: 90px;
+    top: 110px;
   }
   100% {
-    top: 90px;
+    top: 110px;
   }
 }
 
@@ -217,10 +275,11 @@ body {
 @keyframes slide-image-to-container {
   0% {
     left: -300%;
+    rotate: 360deg;
   }
   90% {
     left: 19%;
-    rotate: 0deg;
+    rotate: -15deg;
   }
   100% {
     left: 5px;
