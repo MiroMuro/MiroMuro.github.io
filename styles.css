@@ -68,7 +68,6 @@ body {
 }
 .rope {
   position: absolute;
-
   background-image: url("img/rope.jpg");
   left: 50%;
   top: 0%;
@@ -125,11 +124,8 @@ body {
   position: absolute;
   top: 100px;
   left: 0px;
-  animation-name: drive;
-  animation-duration: 5s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation: drive 5s linear infinite both;
+  z-index: 1000;
 }
 
 .mario {
@@ -174,9 +170,23 @@ body {
   font-family: monospace;
 }
 .biography-card {
-  width: 90%;
-  height: 100%;
+  flex: 0 0 100%;
+  height: 300px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: black;
+}
+.biography-cards-holder {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  overflow: hidden;
+}
+.biography-cards-slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
 }
 .biography-links {
   width: 20%;
@@ -194,7 +204,7 @@ body {
 .biography-column {
   font-size: large;
 }
-.biography .biography .slider {
+.biography {
   background-color: rgb(255, 255, 255, 0.5);
   width: 5%;
   height: 40px;
@@ -202,6 +212,27 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0px 10px 0px 10px;
+}
+.biography-slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  height: 100%;
+}
+.biography-slider {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 1000;
+  color: blue;
+}
+.biography-slider:hover {
+  transition: 0.5s ease-in-out;
+  background-color: black;
+  z-index: 1000;
+  color: white;
 }
 @keyframes drive {
   0% {
@@ -216,11 +247,17 @@ body {
   0% {
     top: 100px;
   }
-  50% {
-    top: 50px;
+  20% {
+    top: 30px; /* Quickly rise to near the peak */
+  }
+  40% {
+    top: 10px; /* Slow down at the very peak */
+  }
+  60% {
+    top: 30px; /* Start descending, slower initially */
   }
   100% {
-    top: 100px;
+    top: 100px; /* Fall back to the original position, faster */
   }
 }
 
