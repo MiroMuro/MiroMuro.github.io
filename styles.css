@@ -16,15 +16,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-
   z-index: 500;
 }
 .image-wrapper {
   position: relative;
-
   width: 200px;
   height: 250px;
-
   background-color: rgb(241, 232, 144);
   border-radius: 25px;
   border: 5px solid black;
@@ -172,6 +169,7 @@ body {
 .biography-card {
   flex: 0 0 100%;
   height: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,6 +183,13 @@ body {
   max-width: 90%;
   overflow: hidden;
   z-index: 1010;
+}
+.biography-slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  height: 100%;
 }
 .biography-cards-slider {
   height: 100%;
@@ -212,11 +217,13 @@ body {
 }
 .biography-aside.social {
   font-size: large;
+  min-width: 210px;
 }
 .biography-header-and-column-wrapper {
   display: flex;
   flex-direction: column;
   width: 80%;
+  min-width: 80%;
   height: 100%;
   padding-top: 2px;
 }
@@ -233,6 +240,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   height: 100%;
+  max-width: 100%;
 }
 .project-wrapper {
   background-color: black;
@@ -241,17 +249,18 @@ body {
   border-radius: 10px;
   width: 22%;
   height: 90%;
-  margin: 5px 0px;
+  margin: 5px 2px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s;
+  transition: width 0.3s;
   cursor: pointer;
   z-index: 1000;
 }
 .project-wrapper:hover {
   background-color: white;
-  transform: scale(1.1);
+  width: 400px;
   color: black;
+  z-index: 6000;
 }
 .biography {
   background-color: rgb(255, 255, 255, 0.5);
@@ -261,13 +270,6 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0px 10px 0px 10px;
-}
-.biography-slider-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5%;
-  height: 100%;
 }
 
 ul li {
