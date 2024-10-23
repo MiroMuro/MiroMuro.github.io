@@ -273,6 +273,22 @@ body {
 ul li {
   margin-bottom: 4px;
 }
+
+.socials-list-item {
+  max-height: 32px;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socials-list-link {
+  transition: transform 0.3s;
+}
+.socials-list-link:hover {
+  transform: scale(1.1);
+}
 @keyframes drive {
   0% {
     left: -300px;
