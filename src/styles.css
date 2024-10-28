@@ -5,6 +5,7 @@ body {
   overflow: hidden;
   margin: 0;
 }
+
 .grass,
 .sky,
 .road {
@@ -173,7 +174,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: large;
   color: black;
 }
 .biography-cards-holder {
@@ -213,7 +214,6 @@ body {
   width: 20%;
   height: 100%;
   border-left: 2px solid black;
-  font-size: medium;
 }
 .biography-aside.social {
   font-size: large;
@@ -226,14 +226,13 @@ body {
   min-width: 80%;
   height: 100%;
   padding-top: 2px;
+  font-size: x-large;
 }
 .biography-header {
   border-bottom: 2px solid black;
   font-size: xx-large;
 }
-.biography-column {
-  font-size: large;
-}
+
 .biography-column-projects {
   font-size: large;
   display: flex;
@@ -261,6 +260,10 @@ body {
   width: 400px;
   color: black;
   z-index: 6000;
+}
+.project-link {
+  text-decoration: none;
+  color: inherit;
 }
 .biography {
   background-color: rgb(255, 255, 255, 0.5);
