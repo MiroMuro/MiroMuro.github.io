@@ -247,8 +247,8 @@ body {
   border: 2px solid black;
   border-radius: 10px;
   width: 22%;
-  height: 90%;
-  margin: 5px 2px;
+  height: 85%;
+  margin: 5px 5px 5px 5px;
   display: flex;
   flex-direction: column;
   transition: width 0.3s;
@@ -261,10 +261,29 @@ body {
   color: black;
   z-index: 6000;
 }
+.project-wrapper:hover .project-description {
+  overflow: visible;
+}
 .project-link {
   text-decoration: none;
   color: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+.project-title {
+  font-size: large;
+}
+.project-description {
+  text-overflow: ellipsis;
+  height: 20%;
+  max-height: 20%;
+  padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .biography {
   background-color: rgb(255, 255, 255, 0.5);
   width: 5%;

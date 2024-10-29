@@ -50,8 +50,8 @@ function appendPinnedReposToArticle(githubResponseData: GitHubGraphQlResponse) {
     let projectDiv = projectDivArray[index];
     projectDiv.innerHTML = `   
                     <a class="project-link" href=${repo.url}>
-                      <h4>${repo.name}</h4>
-                      <main>${repo.description}</main>
+                      <h4 class="project-title" >${repo.name}</h4>
+                      <main class="project-description" >${repo.description}</main>
                     </a>          
     `;
   });
