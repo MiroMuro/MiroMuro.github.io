@@ -32,7 +32,6 @@ async function fetchPinnedReposByMiroMuro() {
 
     const data: GitHubGraphQlResponse = await response.json();
     appendPinnedReposToArticle(data);
-    console.log(data);
   } catch (e) {
     console.error(e);
   }
@@ -41,8 +40,6 @@ async function fetchPinnedReposByMiroMuro() {
 function appendPinnedReposToArticle(githubResponseData: GitHubGraphQlResponse) {
   let pinnedRepos: Repository[] =
     githubResponseData.data.viewer.pinnedItems.nodes;
-
-  console.log("The pinned repos in console: ", pinnedRepos);
 
   let projectDivArray: Element[] = getAllProjectDivs();
 

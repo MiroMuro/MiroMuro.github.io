@@ -4,6 +4,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin: 0;
+  font-size: 16px;
 }
 
 .grass,
@@ -174,7 +175,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: large;
+  font-size: 1rem;
   color: black;
 }
 .biography-cards-holder {
@@ -214,9 +215,10 @@ body {
   width: 20%;
   height: 100%;
   border-left: 2px solid black;
+  font-size: 0.8em;
 }
 .biography-aside.social {
-  font-size: large;
+  font-size: 1.1em;
   min-width: 210px;
 }
 .biography-header-and-column-wrapper {
@@ -226,43 +228,52 @@ body {
   min-width: 80%;
   height: 100%;
   padding-top: 2px;
-  font-size: x-large;
 }
 .biography-header {
   border-bottom: 2px solid black;
-  font-size: xx-large;
+  font-size: 1.5em;
+}
+.biography-column-about-me {
+  font-size: 1em;
 }
 
 .biography-column-projects {
-  font-size: large;
+  font-size: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: 100%;
+  height: 90%;
+  flex: 1;
   max-width: 100%;
 }
 .project-wrapper {
   background-color: black;
+  height: 90%;
   color: white;
   border: 2px solid black;
   border-radius: 10px;
-  width: 22%;
-  height: 85%;
   margin: 5px 5px 5px 5px;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s;
+  flex: 1;
+  min-width: 0; /* Important for text truncutation: https://defensivecss.dev/tip/flexbox-min-content-size/ */
+  transition: all 0.3s ease;
   cursor: pointer;
   z-index: 1000;
 }
 .project-wrapper:hover {
   background-color: white;
-  width: 400px;
+  flex: 3;
   color: black;
   z-index: 6000;
 }
 .project-wrapper:hover .project-description {
-  overflow: visible;
+  -webkit-line-clamp: initial;
+  line-clamp: initial;
+  max-height: none;
+}
+.project-wrapper:hover .project-title {
+  white-space: normal;
 }
 .project-link {
   text-decoration: none;
@@ -273,15 +284,24 @@ body {
   flex-direction: column;
 }
 .project-title {
-  font-size: large;
+  font-size: 1.1em;
+  text-overflow: ellipsis ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .project-description {
-  text-overflow: ellipsis;
-  height: 20%;
-  max-height: 20%;
+  font-size: 1em;
+  text-overflow: ellipsis ellipsis;
+  height: 70%;
   padding: 5px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 1.2em;
+  max-height: calc(2em);
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
 }
 
 .biography {
@@ -315,10 +335,10 @@ ul li {
 }
 @keyframes drive {
   0% {
-    left: -300px;
+    transform: translateX(-100%);
   }
   100% {
-    left: 2000px;
+    transform: translateX(100vw);
   }
 }
 
