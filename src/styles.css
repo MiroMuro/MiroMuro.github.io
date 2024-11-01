@@ -6,38 +6,166 @@ body {
   margin: 0;
   font-size: 16px;
 }
-
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 .grass,
 .sky,
 .road {
   position: relative;
 }
-.image-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.main-content {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr); /* Force minimum height */
+  padding: 2rem;
+  box-sizing: border-box;
   height: 100%;
-  z-index: 500;
+  gap: 1rem; /* Add visual gap to see grid better */
+  background: rgba(0, 0, 0, 0.1); /* Temporary to see grid area */
+}
+.container {
+  position: relative;
+  border: 2px solid black;
+  z-index: 10;
+  width: 70%;
+  height: 60%;
+  margin: 0 auto;
+  top: 35%;
+  transform: translateY(-50%);
+}
+
+.image-container {
+  grid-column: 1/2;
+  grid-row: 1 / span 2;
 }
 .image-wrapper {
   position: relative;
-  width: 200px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   background-color: rgb(241, 232, 144);
   border-radius: 25px;
   border: 5px solid black;
-  top: 119px;
-  left: 19%;
+  overflow: hidden;
 }
 .image-of-me {
   position: absolute;
-  width: 190px;
-  height: 240px;
+  width: calc(100% - 10px); /* Account for padding */
+  height: calc(100% - 10px);
   border-radius: 20px;
   top: 5px;
   left: -300%;
+  object-fit: cover; /* Maintains aspect ratio */
   animation: slide-image-to-container 2s ease-in forwards;
+}
+
+.firstname-container {
+  border: 2px solid black;
+  grid-column: 2/4;
+  grid-row: 1/1;
+}
+.lastname-container {
+  border: 2px solid black;
+  grid-column: 2/6;
+  grid-row: 2/2;
+}
+
+/* Responsive breakpoints. These elements must be declared above for these to work lol*/
+/*Jos leveys on alle 1200, tee näin*/
+@media (max-width: 1200px) {
+  .image-container {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+  }
+  .firstname-container {
+    grid-column: 2 / span 2;
+    grid-row: 1/1;
+  }
+  .lastname-container {
+    grid-column: 2 / span 4;
+    grid-row: 2/2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .image-container {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+  .firstname-container {
+    grid-column: 3 / span 3;
+    grid-row: 1/1;
+  }
+  .lastname-container {
+    grid-column: 3 / span 4;
+    grid-row: 2/2;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  .firstname-container {
+    grid-column: 3 / span 4;
+    grid-row: 1/1;
+  }
+  .lastname-container {
+    grid-column: 3 / span 4;
+    grid-row: 2/2;
+  }
+}
+
+@media (max-width: 640px) {
+  .image-container {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+  }
+  .firstname-container {
+    grid-column: 2 / span 4;
+    grid-row: 3/3;
+  }
+  .lastname-container {
+    grid-column: 1 / span 6;
+    grid-row: 4/4;
+  }
+}
+
+@media (max-width: 500px) {
+  .image-container {
+    grid-column: 2 / span 4;
+    grid-row: 1 / span 2;
+  }
+}
+
+.letter {
+  background: transparent;
+  z-index: 500;
+  max-height: 100px;
+  width: 100%;
+}
+.letter-lastname {
+  background: transparent;
+  z-index: 500;
+  height: 100px;
+}
+
+.letters-wrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+.letter-container {
+  width: auto;
 }
 .rope-and-letter-container {
   position: absolute;
@@ -51,11 +179,7 @@ body {
   z-index: 500;
   pointer-events: none;
 }
-.rope-wrapper {
-  position: relative;
-  width: 80px;
-  height: 800px;
-}
+
 .rope-wrapper:nth-child(2) .rope,
 .rope-wrapper:nth-child(2) .letter {
   animation-delay: 0.5s;
@@ -136,26 +260,6 @@ body {
   animation-timing-function: linear;
 }
 
-.letter {
-  background: transparent;
-  z-index: 500;
-  height: 100px;
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: letter-drop 2s ease-out forwards;
-}
-.letter-lastname {
-  background: transparent;
-  z-index: 500;
-  height: 100px;
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: letter-lastname-drop 2s ease-out 3s forwards;
-}
 .biography-container {
   width: 61%;
   height: 80%;

@@ -6,69 +6,147 @@
     <link href="src/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="rope-and-letter-container">
-      <div class="rope-wrapper">
-        <div class="rope"></div>
-        <img class="letter" src="letters/M.png" alt="M" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope"></div>
-        <img class="letter" src="letters/I.png" alt="I" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope"></div>
-        <img class="letter" src="letters/R.png" alt="R" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope"></div>
-        <img class="letter" src="letters/O.png" alt="O" />
+    <div class="background">
+      <div class="sky"></div>
+      <div class="grass"></div>
+      <div class="road">
+        <div class="stripes"></div>
+        <img class="mario" src="img/mario.png" alt="Mario" />
+        <img
+          class="luigi"
+          id="luigi"
+          src="img/luigi.png"
+          alt="Luigi"
+          onclick="console.log('Inline Luigi clicked')"
+        />
       </div>
     </div>
-    <div class="rope-and-letter-container">
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/L.png" alt="L" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/A.png" alt="A" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/U.png" alt="U" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/K.png" alt="K" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/K.png" alt="K" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/A.png" alt="A" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/N.png" alt="N" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/E.png" alt="E" />
-      </div>
-      <div class="rope-wrapper">
-        <div class="rope-letter-lastname"></div>
-        <img class="letter-lastname" src="letters/N.png" alt="N" />
+    <div class="container">
+      <div class="main-content">
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img
+              class="image-of-me"
+              src="img/me.jpg"
+              alt="Me, Miro Laukkanen"
+            />
+          </div>
+        </div>
+        <div class="firstname-container">
+          <div class="letters-wrapper">
+            <div class="letter-container">
+              <img class="letter" src="letters/M.png" alt="M" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/I.png" alt="I" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/R.png" alt="R" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/O.png" alt="O" />
+            </div>
+          </div>
+        </div>
+        <div class="lastname-container">
+          <div class="letters-wrapper">
+            <div class="letter-container">
+              <img class="letter" src="letters/L.png" alt="L" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/A.png" alt="A" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/U.png" alt="U" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/K.png" alt="K" />
+            </div>
+
+            <div class="letter-container">
+              <img class="letter" src="letters/K.png" alt="K" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/A.png" alt="A" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/N.png" alt="N" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/E.png" alt="E" />
+            </div>
+            <div class="letter-container">
+              <img class="letter" src="letters/N.png" alt="N" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="image-container">
-      <div class="image-wrapper">
-        <img class="image-of-me" src="img/me.jpg" alt="Me, Miro Laukkanen" />
+
+    <!-- <div id="image-and-initials-grid" class="image-and-initials-grid">
+      <div class="rope-and-letter-container">
+        <div class="rope-wrapper">
+          <div class="rope"></div>
+          <img class="letter" src="letters/M.png" alt="M" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope"></div>
+          <img class="letter" src="letters/I.png" alt="I" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope"></div>
+          <img class="letter" src="letters/R.png" alt="R" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope"></div>
+          <img class="letter" src="letters/O.png" alt="O" />
+        </div>
+      </div>
+      <div class="rope-and-letter-container">
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/L.png" alt="L" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/A.png" alt="A" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/U.png" alt="U" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/K.png" alt="K" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/K.png" alt="K" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/A.png" alt="A" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/N.png" alt="N" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/E.png" alt="E" />
+        </div>
+        <div class="rope-wrapper">
+          <div class="rope-letter-lastname"></div>
+          <img class="letter-lastname" src="letters/N.png" alt="N" />
+        </div>
+      </div>
+      <div class="image-container">
+        <div class="image-wrapper">
+          <img class="image-of-me" src="img/me.jpg" alt="Me, Miro Laukkanen" />
+        </div>
       </div>
     </div>
-    <div class="sky"></div>
-    <div class="grass">
+    
       <div class="biography-container">
         <div class="biography-slider-container" id="left-slider">
           <button class="biography-slider">&lt;</button>
@@ -213,19 +291,8 @@
         <div class="biography-slider-container" id="right-slider">
           <button class="biography-slider">&gt;</button>
         </div>
-      </div>
-    </div>
-    <div class="road">
-      <div class="stripes"></div>
-      <img class="mario" src="img/mario.png" alt="Mario" />
-      <img
-        class="luigi"
-        id="luigi"
-        src="img/luigi.png"
-        alt="Luigi"
-        onclick="console.log('Inline Luigi clicked')"
-      />
-    </div>
+      </div>  -->
+
     <script src="src/init.ts" defer></script>
     <script src="src/sliders.ts"></script>
     <script type="module" src="src/fetchPinnedRepos.ts"></script>
