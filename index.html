@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+      charset="utf-8"
+    />
     <title>Miro Laukkanen homepage</title>
     <link href="src/styles.css" rel="stylesheet" />
   </head>
@@ -80,10 +84,44 @@
             </div>
           </div>
         </div>
+        <div class="biography-section">
+          <!-- Mobile dropdown selector-->
+          <select
+            class="biography-dropdown"
+            aria-label="Select biography-section"
+          >
+            <option value="about">About me</option>
+            <option value="projects">My projects</option>
+            <option value="projects">Socials</option>
+          </select>
+
+          <!-- Desktop slider controls-->
+          <div class="slider-controls">
+            <button class="slider-arrow prev" aria-label="Previous section">
+              ←
+            </button>
+            <button class="slider-arrow next" aria-label="Next section">
+              →
+            </button>
+          </div>
+
+          <div class="biography-content">
+            <div class="biography-slide about-slide">
+              <h2>About me</h2>
+              <div class="about-content">
+                <p>My bio content</p>
+              </div>
+            </div>
+
+            <div class="biography-slide projects-slide">
+              <h2>My projects</h2>
+              <div class="projects-content">
+                <div class="projects-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <div class="biography-container">
-        <div class="biography-wrapper"></div>
-      </div> -->
     </div>
 
     <script src="src/init.ts" defer></script>
