@@ -18,6 +18,28 @@ body {
 .road {
   position: relative;
 }
+.sky {
+  height: 40vh;
+  background: skyblue;
+}
+.grass {
+  height: 30vh;
+  background-repeat: repeat;
+  background-image: url("../img/grass.png");
+  background-size: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.road {
+  height: 30vh;
+  background: dimgray;
+  /*The CSS box-sizing property allows us to include the padding and border in an
+    elements total width and height. Needed for the bottom border to be visible*/
+  box-sizing: border-box;
+  border-top: 10px solid gray;
+  border-bottom: 10px solid gray;
+}
 .main-content {
   position: relative;
   z-index: 10;
@@ -63,6 +85,16 @@ body {
   left: -300%;
   object-fit: cover; /* Maintains aspect ratio */
   animation: slide-image-to-container 2s ease-in forwards;
+}
+
+.letters-wrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+.letter-container {
+  width: auto;
 }
 
 .firstname-container {
@@ -146,6 +178,120 @@ body {
   }
 }
 
+.luigi {
+  max-height: 15vh;
+  width: auto;
+  position: absolute;
+  top: 7.5vh;
+  left: 0px;
+  animation: drive 5s linear infinite both;
+  z-index: 1000;
+}
+
+.mario {
+  max-height: 15vh;
+  width: auto;
+  position: absolute;
+  top: -4vh;
+  animation-name: drive;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@media (max-height: 600px) {
+  .container {
+    height: 70vh;
+    top: 35vh;
+  }
+  .main-content {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  /* Make background sections smaller */
+  .sky {
+    height: 35vh;
+  }
+
+  .grass {
+    height: 35vh;
+  }
+
+  .road {
+    height: 30vh;
+  }
+
+  .image-container {
+    grid-column: 1 / span 1;
+  }
+  .firstname-container {
+    grid-column: 2 / span 3;
+  }
+  .lastname-container {
+    grid-column: 2 / span 5;
+  }
+  .letter,
+  .letter-lastname {
+    max-height: 8vh;
+  }
+}
+
+/* Extra small height devices (landscape phones) */
+@media (max-height: 400px) {
+  .container {
+    height: 70vh;
+    top: 35vh;
+  }
+
+  /* Adjust background sections further */
+  .sky {
+    height: 30vh;
+  }
+
+  .grass {
+    height: 40vh;
+  }
+
+  .road {
+    height: 30vh;
+  }
+
+  /* Make Mario and Luigi even smaller */
+  .mario,
+  .luigi {
+    max-height: 12vh;
+  }
+
+  /* Compact the grid further */
+  .main-content {
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  /* Adjust letter sizes further */
+  .letter,
+  .letter-lastname {
+    height: 100%;
+  }
+  .letter-container {
+    height: auto;
+    width: 100%;
+  }
+  .letters-wrapper.lastname {
+    max-height: 10vh;
+    max-width: 40vw;
+  }
+  .letters-wrapper.firstname {
+    max-height: 10vh;
+    max-width: 22vw;
+  }
+  /* Make the image smaller */
+  .image-wrapper {
+    max-height: 25vh;
+  }
+}
+
 .letter {
   background: transparent;
   z-index: 500;
@@ -209,31 +355,11 @@ body {
   transform-origin: top center;
   animation: rope-drop-and-retract-letter-lastname 1.4s both ease-out 3s;
 }
-.sky {
-  height: 40%;
-  background: skyblue;
-}
-.grass {
-  height: 30%;
-  background-repeat: repeat;
-  background-image: url("../img/grass.png");
-  background-size: 2%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .grass-image {
   height: 40%;
 }
-.road {
-  height: 30%;
-  background: dimgray;
-  /*The CSS box-sizing property allows us to include the padding and border in an
-    elements total width and height. Needed for the bottom border to be visible*/
-  box-sizing: border-box;
-  border-top: 10px solid gray;
-  border-bottom: 10px solid gray;
-}
+
 .stripes {
   box-sizing: border-box;
   border: 5px dashed white;
@@ -241,23 +367,6 @@ body {
   width: 100%;
   position: absolute;
   top: 50%;
-}
-
-.luigi {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  animation: drive 5s linear infinite both;
-  z-index: 1000;
-}
-
-.mario {
-  position: absolute;
-  animation-name: drive;
-  animation-duration: 10s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 .biography-container {
@@ -448,19 +557,19 @@ ul li {
 
 @keyframes luigi-jump {
   0% {
-    top: 100px;
+    top: 7.5vh;
   }
   20% {
-    top: 30px; /* Quickly rise to near the peak */
+    top: 2vh;
   }
   40% {
-    top: 10px; /* Slow down at the very peak */
+    top: 1vh;
   }
   60% {
-    top: 30px; /* Start descending, slower initially */
+    top: 2vh;
   }
   100% {
-    top: 100px; /* Fall back to the original position, faster */
+    top: 7.5vh;
   }
 }
 
