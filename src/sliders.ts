@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const biographyDropdown: HTMLSelectElement | null = document.querySelector(
-    ".biography-dropdown"
-  );
   const biographyContent: HTMLElement | null =
     document.querySelector(".biography-content");
   const sliderArrowPrev: HTMLElement | null =
@@ -17,32 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!biographyContent || !slides) return;
 
     if (window.innerWidth > 768) {
+      biographyContent.style.display = "flex";
       biographyContent.style.transform = `translateX(-${slideIndex * 100}%)`;
     } else {
-      slides.forEach((slide) => slide.classList.remove("active"));
-      slides[slideIndex].classList.add("active");
+      biographyContent.style.display = "none";
     }
     currentSlide = slideIndex;
   };
 
   sliderArrowPrev?.addEventListener("click", () => {
-    console.log("prev");
     currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
     goToSlide(currentSlide);
   });
 
   sliderArrowNext?.addEventListener("click", () => {
-    console.log("next");
     currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
     goToSlide(currentSlide);
   });
 
-  biographyDropdown?.addEventListener("change", (e) => {
-    if (!e.target) return;
-    const index = (e.target as HTMLSelectElement).selectedIndex;
-    goToSlide(index);
-  });
-  console.log("The slides: ", slides);
   //Initial state
   slides[0].classList.add("active");
 
