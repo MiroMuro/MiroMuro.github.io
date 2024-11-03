@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const biographySection: HTMLElement | null =
-    document.querySelector(".biography-section");
   const biographyDropdown: HTMLSelectElement | null = document.querySelector(
     ".biography-dropdown"
   );

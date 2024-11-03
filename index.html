@@ -85,15 +85,49 @@
           </div>
         </div>
         <div class="biography-section">
-          <!-- Mobile dropdown selector-->
-          <select
+          <!-- Mobile accordion menu-->
+
+          <div class="accordion-menu">
+            <button class="accordion">About me</button>
+            <div class="accordion-panel">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                excepturi magnam quidem maiores, porro autem animi distinctio
+                quasi quae nostrum, ut repudiandae natus necessitatibus aliquam
+                incidunt voluptatum. Cum, repudiandae similique?
+              </p>
+            </div>
+            <button class="accordion">My projects</button>
+
+            <div class="accordion-panel">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae,
+                cupiditate provident est perspiciatis, quibusdam doloribus
+                expedita optio maiores placeat officiis iste nam cum
+                necessitatibus quidem temporibus. Nostrum omnis praesentium
+                eius.
+              </p>
+            </div>
+            <button class="accordion">Contact me</button>
+
+            <div class="accordion-panel">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit
+                deserunt ullam temporibus magnam magni ab tenetur minima
+                explicabo, natus accusantium saepe autem commodi rem voluptates?
+                Eos adipisci officia impedit? Nesciunt?
+              </p>
+            </div>
+          </div>
+
+          <!-- <select
             class="biography-dropdown"
             aria-label="Select biography-section"
           >
             <option value="about">About me</option>
             <option value="projects">My projects</option>
             <option value="projects">Socials</option>
-          </select>
+          </select> -->
 
           <!-- Desktop slider controls-->
           <div class="slider-controls">
@@ -119,6 +153,13 @@
                 <div class="projects-grid"></div>
               </div>
             </div>
+
+            <div class="biography-slide socials-slide">
+              <h2>Contact me</h2>
+              <div class="socials-content">
+                <div class="socials-grid"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -127,5 +168,6 @@
     <script src="src/init.ts" defer></script>
     <script src="src/sliders.ts"></script>
     <script type="module" src="src/fetchPinnedRepos.ts"></script>
+    <script src="src/accordion.ts"></script>
   </body>
 </html>
