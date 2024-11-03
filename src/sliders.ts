@@ -1,38 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const nextSlider = document.getElementById("right-slider");
-  const prevSlider = document.getElementById("left-slider");
-  const slides = document.querySelectorAll(".biography-card");
-  const biographyCardSlider: HTMLElement | null = document.querySelector(
-    ".biography-cards-slider"
+document.addEventListener("DOMContentLoaded", () => {
+  const biographySection: HTMLElement | null =
+    document.querySelector(".biography-section");
+  const biographyDropdown: HTMLSelectElement | null = document.querySelector(
+    ".biography-dropdown"
   );
+  const biographyContent: HTMLElement | null =
+    document.querySelector(".biography-content");
+  const sliderArrowPrev: HTMLElement | null =
+    document.querySelector(".slider-arrow.prev");
+  const sliderArrowNext: HTMLElement | null =
+    document.querySelector(".slider-arrow.next");
+  const slides: NodeListOf<HTMLElement> | null =
+    document.querySelectorAll(".biography-slide");
 
-  let currentIndex = 0;
+  let currentSlide = 0;
 
-  if (!nextSlider || !prevSlider || !slides.length || !biographyCardSlider) {
-    console.error("One or more elements not found");
-    return;
-  }
+  const goToSlide = (slideIndex: number) => {
+    if (!biographyContent || !slides) return;
 
-  initializeSliders();
+    if (window.innerWidth > 768) {
+      biographyContent.style.transform = `translateX(-${slideIndex * 100}%)`;
+    } else {
+      slides.forEach((slide) => slide.classList.remove("active"));
+      slides[slideIndex].classList.add("active");
+    }
+    currentSlide = slideIndex;
+  };
 
-  function initializeSliders(): void {
-    prevSlider!.addEventListener("click", prevSlide);
-    nextSlider!.addEventListener("click", nextSlide);
-  }
+  sliderArrowPrev?.addEventListener("click", () => {
+    console.log("prev");
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+    goToSlide(currentSlide);
+  });
 
-  function updateSlider(): void {
-    biographyCardSlider!.style.transform = `translateX(-${
-      currentIndex * 100
-    }%)`;
-  }
+  sliderArrowNext?.addEventListener("click", () => {
+    console.log("next");
+    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+    goToSlide(currentSlide);
+  });
 
-  function nextSlide(): void {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
-  }
+  biographyDropdown?.addEventListener("change", (e) => {
+    if (!e.target) return;
+    const index = (e.target as HTMLSelectElement).selectedIndex;
+    goToSlide(index);
+  });
+  console.log("The slides: ", slides);
+  //Initial state
+  slides[0].classList.add("active");
 
-  function prevSlide(): void {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
-  }
+  //Handle resize
+  window.addEventListener("resize", () => {
+    goToSlide(currentSlide);
+  });
 });

@@ -4,7 +4,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem; /*Listens to users font size in browser*/
   font-family: monospace;
 }
 .background {
@@ -58,7 +58,7 @@ body {
   border: 2px solid black;
   z-index: 10;
   width: 70%;
-  height: 60%;
+  height: 70%;
   margin: 0 auto;
   top: 35%;
   transform: translateY(-50%);
@@ -216,7 +216,7 @@ body {
 
 /* Responsive breakpoints. These elements must be declared above for these to work lol*/
 /*Jos leveys on alle 1200, tee näin*/
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
   .image-container {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
@@ -231,7 +231,7 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .image-container {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
@@ -246,7 +246,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .image-container {
     grid-column: 1 / span 2;
     grid-row: 1 / span 2;
@@ -272,7 +272,8 @@ body {
   .biography-dropdown {
     display: block;
   }
-
+  /*Block level elements take up all available space, inlines only take
+ up what is needed*/
   .biography-content {
     display: block;
   }
