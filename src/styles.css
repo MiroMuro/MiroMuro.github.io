@@ -343,12 +343,51 @@ body {
   border-radius: 4px;
 }
 .project-div {
+  text-decoration: none;
+  color: white;
   border: none;
   border-radius: 25px;
   background-color: #000000;
   height: 100%;
+  flex-direction: column;
+  /* Make it a containing block */
+  position: relative;
+  /* Ensure it respects grid boundaries */
+  min-width: 0;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  /* Position it absolutely within the project-div */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  padding: 0.5rem;
+}
+
+.project-name {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Only need one, not 'ellipsis ellipsis' */
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  width: 100%;
+  margin: 0;
+  line-height: 1.2em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7; /* Limits text to 2 lines */
+  overflow: hidden;
+  white-space: normal; /* Allow text to wrap */
 }
 /* Responsive breakpoints. These elements must be declared above for these to work lol*/
 /*Jos leveys on alle 1200, tee näin*/
@@ -728,34 +767,6 @@ body {
 }
 .project-wrapper:hover .project-title {
   white-space: normal;
-}
-.project-link {
-  text-decoration: none;
-  color: inherit;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.project-title {
-  font-size: 1.1em;
-  text-overflow: ellipsis ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.project-description {
-  font-size: 1em;
-  text-overflow: ellipsis ellipsis;
-  height: 70%;
-  padding: 5px;
-  overflow: hidden;
-  display: -webkit-box;
-  line-height: 1.2em;
-  max-height: calc(2em);
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  transition: all 0.3s ease;
 }
 
 .biography {

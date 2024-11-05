@@ -43,42 +43,48 @@ function appendPinnedReposToArticle(githubResponseData: GitHubGraphQlResponse) {
 
   let projectDivArray: Element[] = getAllProjectDivs();
 
+  if (projectDivArray.length === 0) {
+    console.error("No project divs found");
+    return;
+  }
+
   pinnedRepos.forEach((repo, index) => {
     let projectDiv = projectDivArray[index];
     projectDiv.innerHTML = `   
                     <a class="project-link" href=${repo.url}>
-                      <h4 class="project-title" >${repo.name}</h4>
-                      <main class="project-description" >${repo.description}</main>
+                      <header class="project-name" >${repo.name}</header>
+                      <p class="project-description" >${repo.description}</p>
                     </a>          
     `;
   });
 }
 
 function getAllProjectDivs(): Element[] {
-  let projectsArticle = getProjectsArticleElement();
+  let projectsGrid = getProjectsGridElement();
 
-  if (!projectsArticle) {
+  if (!projectsGrid) {
     return [];
   }
 
   let projectDivArray: Element[] = [];
 
-  for (const child of projectsArticle!.children) {
+  for (const child of projectsGrid.children) {
     projectDivArray.push(child);
+    console.log("child: ", child);
   }
   return projectDivArray;
 }
 
-function getProjectsArticleElement(): HTMLElement | null {
-  const projectsArticle: HTMLElement | null =
-    document.getElementById("projects-article");
+function getProjectsGridElement(): HTMLElement | null {
+  const projectsGrid: HTMLElement | null =
+    document.getElementById("projects-grid");
 
-  if (!projectsArticle) {
-    console.error("No projects-article element found");
+  if (!projectsGrid) {
+    console.error("No projects-grid element found");
     return null;
   }
 
-  return projectsArticle;
+  return projectsGrid;
 }
 
 fetchPinnedReposByMiroMuro();
