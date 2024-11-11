@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   sliderArrowPrev?.addEventListener("click", () => {
+    console.log("prev");
     currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
     goToSlide(currentSlide);
   });
 
   sliderArrowNext?.addEventListener("click", () => {
+    console.log("next");
     currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
     goToSlide(currentSlide);
   });

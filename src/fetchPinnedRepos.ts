@@ -51,10 +51,15 @@ function appendPinnedReposToArticle(githubResponseData: GitHubGraphQlResponse) {
   pinnedRepos.forEach((repo, index) => {
     let projectDiv = projectDivArray[index];
     projectDiv.innerHTML = `   
-                    <a class="project-link" href=${repo.url}>
+                    <div class="project-name-and-desc-container">
                       <header class="project-name" >${repo.name}</header>
                       <p class="project-description" >${repo.description}</p>
-                    </a>          
+                    </div>
+                    <a href=${repo.url} class="project-github-button-container">
+                    <button style="cursor: pointer;" >
+                      <img src="img/github.png" />
+                    </button>
+                  </a>         
     `;
   });
 }
