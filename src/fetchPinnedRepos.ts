@@ -75,7 +75,6 @@ function getAllProjectDivs(): Element[] {
 
   for (const child of projectsGrid.children) {
     projectDivArray.push(child);
-    console.log("child: ", child);
   }
   return projectDivArray;
 }
