@@ -5,7 +5,7 @@ let accordionProjectDivs = document.querySelectorAll(
 //Eli sitten jokais
 const openClose = () => {
   console.log("OPen close");
-  //console.log("Accordion project divs: ", accordionProjectDivs);
+  console.log("Accordion project divs: ", accordionProjectDivs);
 
   for (let div of accordionProjectDivs) {
     for (let childElement of div.children) {
