@@ -197,11 +197,14 @@ body {
 .accordion-project {
   border: 0;
   border-radius: 25px;
-  background-color: white;
+  background-color: black;
+  color: white;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
 }
 
 .tl {
@@ -248,13 +251,19 @@ body {
     grid-column: 1 / span 2;
   }
 }
-
+.accordion-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
 .expand-button {
   background-color: rgb(241, 232, 144);
   border: 2px solid black;
   border-radius: 25px;
-  padding: 10px;
-  font-size: 1.2rem;
+  width: 50%;
+  padding: 2px;
+  margin-bottom: 4px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
 
