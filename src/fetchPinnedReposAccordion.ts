@@ -58,8 +58,14 @@ function appendPinnedReposToAccordion(
                     <div class="accordion-text-wrapper">
                     <header class="accordion-project-header">${repo.name}</header>
                     <p class="accordion-project-description">${repo.description}</p>
+                    <a href=${repo.url} class="project-github-button-accordion">
+                    <button style="cursor: pointer;" >
+                      <img src="img/github.png" />
+                    </button>
+                  </a>
                   </div>
-                  <button class="expand-button ${projectAccordion.classList[1]}">Expand</button>
+                  
+                  <button class="expand-button ${projectAccordion.classList[1]}"></button>
                     `;
   });
   openClose();
@@ -69,7 +75,6 @@ function getProjectsAccordionElement(): NodeListOf<Element> | null {
   let accordionProjectDivs = document.querySelectorAll(
     ".accordion-project"
   ) as NodeListOf<Element>;
-  //console.log("Accordion project divs: ", accordionProjectDivs);
   return accordionProjectDivs;
 }
 
@@ -77,7 +82,6 @@ let accordionProjectDivs = document.querySelectorAll(
   ".accordion-project"
 ) as NodeListOf<Element>;
 
-//Eli sitten jokais
 const openClose = () => {
   console.log("OPen close");
   console.log("Accordion project divs: ", accordionProjectDivs);
@@ -86,11 +90,13 @@ const openClose = () => {
     for (let childElement of div.children) {
       if (childElement.tagName === "BUTTON") {
         childElement.addEventListener("click", () => {
-          console.log("Div: ", div);
           let querySelector = "." + div.classList[1];
-          console.log("Queryselector ", querySelector);
+          document.querySelectorAll(".accordion-project").forEach((el) => {
+            if (el.classList[1] !== div.classList[1]) {
+              el.classList.remove("open");
+            }
+          });
           var element = document.querySelector(querySelector);
-          console.log("Element: ", element);
           element?.classList.toggle("open");
         });
       }
