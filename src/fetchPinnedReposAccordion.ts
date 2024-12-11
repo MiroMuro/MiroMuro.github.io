@@ -1,35 +1,10 @@
 import { GitHubGraphQlResponse, Repository } from "./interfaces";
 
-const token: string = import.meta.env.VITE_GITHUB_TOKEN;
 async function fetchPinnedReposByMiroMuro() {
   try {
-    const response = await fetch("https://api.github.com/graphql", {
-      method: "POST",
-      headers: {
-        Authorization: `bearer ${token}`,
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `{
-                viewer {
-                    pinnedItems(first: 6, types: REPOSITORY){
-                        nodes{
-                            ... on Repository{
-                                name
-                                description
-                                primaryLanguage{
-                                    name
-                                }
-                                url
-                                }
-                            }
-                        }
-                    }
-                }`,
-      }),
-    });
-
+    const response = await fetch("/proxy.js"); // This points to the proxy.js on GitHub Pages
     const data: GitHubGraphQlResponse = await response.json();
+
     //console.log("Data: ", data);
     appendPinnedReposToAccordion(data);
   } catch (e) {
