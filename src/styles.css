@@ -47,7 +47,7 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr); /* Force minimum height */
-  padding: 2rem;
+  padding: 1.5rem;
   box-sizing: border-box;
   height: 100%;
   gap: 1rem; /* Add visual gap to see grid better */
@@ -435,20 +435,13 @@ body {
 
 .projects-grid {
   margin: 1.8rem 3.5rem 1.8rem 3.5rem;
-  display: grid;
-  grid-auto-flow: column; /* new columns will be created to the right */
-  grid-auto-columns: 1fr;
-  /* Change to 12 columns to ensure space for expansion */
-  grid-template-columns: repeat(6, minmax(10rem, 1fr));
+  display: flex;
   transition: 500ms;
-  grid-auto-flow: column;
   height: 65%;
   gap: 1rem;
   overflow-x: auto;
-
   /* Optional: Smooth scrolling */
   scroll-behavior: smooth;
-
   /* Hide scrollbar in Firefox */
   scrollbar-width: thin;
 }
@@ -463,6 +456,11 @@ body {
 }
 
 .project-div {
+  display: flex;
+  flex: 0 1 auto;
+  flex-basis: 10rem;
+  min-width: 0;
+  max-width: 100%;
   text-decoration: none;
   color: white;
   border: none;
@@ -470,16 +468,21 @@ body {
   background-color: #000000;
   height: 100%;
   flex-direction: column;
-  /* Make it a containing block */
   position: relative;
-  /* Ensure it respects grid boundaries */
   min-width: 0;
+  transition: all 500ms;
 }
 .project-div:hover {
-  /* Expand to span 4 columns on hover */
-  grid-column: span 2;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 300px;
+  z-index: 10;
 }
 
+.projects-grid > .project-div.last:hover {
+  grid-column-start: 5 !important;
+  grid-column-end: span 2;
+}
 [class^="project-div"]:hover .project-description {
   /* ADDED */
   -webkit-line-clamp: 6;
@@ -497,6 +500,7 @@ body {
   bottom: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 0.5rem;
 }
 
@@ -520,15 +524,33 @@ body {
 }
 
 .project-github-button-container {
-  position: absolute;
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.project-github-button-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: all 500ms ease;
+}
+.github-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  width: auto;
+  height: auto;
+  transition: all 500ms ease-in-out;
+}
+.github-button:hover {
+  transform: scale(1.1);
+  border: white 2px solid;
+}
 /* Responsive breakpoints. These elements must be declared above for these to work lol*/
 /*Jos leveys on alle 1200, tee näin*/
 @media (max-width: 75rem) {

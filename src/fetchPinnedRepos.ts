@@ -54,11 +54,11 @@ function appendPinnedReposToArticle(githubResponseData: GitHubGraphQlResponse) {
                     <div class="project-name-and-desc-container">
                       <header class="project-name" >${repo.name}</header>
                       <p class="project-description" >${repo.description}</p>
-                    </div>
-                    <a href=${repo.url} class="project-github-button-container">
-                    <button style="cursor: pointer;" >
+                      <a href=${repo.url} class="project-github-button-container">
+                    <button class="github-button" >
                       <img src="img/github.png" />
                     </button>
+                    </div>
                   </a>         
     `;
   });
