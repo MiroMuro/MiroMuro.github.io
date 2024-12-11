@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const biographyContent: HTMLElement | null =
-    document.querySelector(".biography-content");
-  const sliderArrowPrev: HTMLElement | null =
-    document.querySelector(".slider-arrow.prev");
-  const sliderArrowNext: HTMLElement | null =
-    document.querySelector(".slider-arrow.next");
-  const slides: NodeListOf<HTMLElement> | null =
-    document.querySelectorAll(".biography-slide");
+  const biographyContent = document.querySelector(".biography-content");
+  const sliderArrowPrev = document.querySelector(".slider-arrow.prev");
+  const sliderArrowNext = document.querySelector(".slider-arrow.next");
+  const slides = document.querySelectorAll(".biography-slide");
 
   let currentSlide = 0;
 
-  const goToSlide = (slideIndex: number) => {
+  const goToSlide = (slideIndex) => {
     if (!biographyContent || !slides) return;
 
     if (window.innerWidth > 768) {

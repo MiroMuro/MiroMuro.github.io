@@ -1,6 +1,4 @@
-let accordionProjectDivs = document.querySelectorAll(
-  ".accordion-project"
-) as NodeListOf<Element>;
+let accordionProjectDivs = document.querySelectorAll(".accordion-project");
 
 //Eli sitten jokais
 const openClose = () => {
@@ -11,11 +9,13 @@ const openClose = () => {
     for (let childElement of div.children) {
       if (childElement.tagName === "BUTTON") {
         childElement.addEventListener("click", () => {
-          console.log("Div: ", div);
           let querySelector = "." + div.classList[1];
-          console.log("Queryselector ", querySelector);
+          document.querySelectorAll(".accordion-project").forEach((el) => {
+            if (el.classList[1] !== div.classList[1]) {
+              el.classList.remove("open");
+            }
+          });
           var element = document.querySelector(querySelector);
-          console.log("Element: ", element);
           element?.classList.toggle("open");
         });
       }
